@@ -30,7 +30,7 @@
 \end{theorem}
 \begin{proof}
 	Мы доказали неравенство в одну сторону (неравенство \ref{1.2}). Докажем в другую. 
-	По определению $\sup$, $\forall \Epsilon > 0, \exists x_{\Epsilon} : \norm{x_{\Epsilon}} = 1 \Rightarrow \norm{A} - \Epsilon < \norm{Ax_{\Epsilon}}$.
+	По определению $\sup$, $\forall \Epsilon > 0, \exists x_{\Epsilon} : \norm{x_{\Epsilon}} = 1 \implies \norm{A} - \Epsilon < \norm{Ax_{\Epsilon}}$.
 	Пусть $Z = \mathcal{L}(Ax_{\Epsilon})$. Рассмотрим $f : Z \rightarrow \mathbb{R}$, $f(z) = \alpha\norm{Ax_{\Epsilon}}$. Очевидно, что $f \in Y^*$. 
 	Поэтому, по теореме Хана-Банаха, распростваним $f$ на все $Y$, и назовем ее $\phi_{\Epsilon}$.
 	Тогда, по свойствам $f$, $\norm{\phi_{\Epsilon}} = 1, \phi_{\Epsilon}(Ax_{\Epsilon}) = \norm{Ax_{\Epsilon}}$.
@@ -54,16 +54,16 @@
 	\begin{enumerate}[leftmargin=*]
 	\item
 	Пусть $g(x) = \scalarp{x}{y}$. Очевидно, что это линейный функционал. 
-	По неравенству Шварца $\abs{g(x)} \leqslant \norm{y} \norm{x} \Rightarrow \norm{g} \leqslant \norm{y}$. Это значит, что $g$ - ограничен.
+	По неравенству Шварца $\abs{g(x)} \leqslant \norm{y} \norm{x} \implies \norm{g} \leqslant \norm{y}$. Это значит, что $g$ - ограничен.
 	Возьмем $x = \frac{y}{\norm{y}}$. 
 	\begin{gather*}
-		g(\frac{y}{\norm{y}}) = \scalarp{\frac{y}{\norm{y}}}{y} = \frac{1}{\norm{y}}\scalarp{y}{y} = \norm{y}
+		g\left(\frac{y}{\norm{y}}\right) = \scalarp{\frac{y}{\norm{y}}}{y} = \frac{1}{\norm{y}}\scalarp{y}{y} = \norm{y}
 	\end{gather*}
 	Сопоставляя это с тем, что $\norm{g} \leqslant \norm{y}$, получаем, что $\norm{g} = \norm{y}$.
 	\item
 	Пусть для какого-то $\widetilde{y}$, $g(x) = \scalarp{x}{\widetilde{y}}$.
 	Тогда $0 = \scalarp{x}{y} - \scalarp{x}{\widetilde{y}} = \scalarp{x}{y - \widetilde{y}}$. Пусть $x = y - \widetilde{y}$,  
-	$\Rightarrow \scalarp{y - \widetilde{y}}{y - \widetilde{y}} = 0 \Rightarrow y = \widetilde{y}$
+	$\implies \scalarp{y - \widetilde{y}}{y - \widetilde{y}} = 0 \implies y = \widetilde{y}$
 	\item
 	Рассмотрим произвольный функционал $f \in H^*$. Как известно, $\Ker f$ - гиперплоскость, т.е. 
 	$\codim H_1 = \dim H_2 = 1$, где $H_1 = \Ker f, H_2 = H_1^\bot$, и $H = H_1 \oplus H_2$.
@@ -85,13 +85,13 @@
 \begin{definition}[Ортогональное дополнение в $B$- пространстве]
 	Пусть $S \subset X$.
 
-	 Тогда $S^\bot = \left\{ f \mid f \in X^*, \forall x \in S \Rightarrow f(x) = 0 \right\}$.
+	 Тогда $S^\bot = \left\{ f \mid f \in X^*, \forall x \in S \implies f(x) = 0 \right\}$.
 \end{definition}
 
 \begin{definition}[Ортогональное дополнение в сопряженном пространстве]
 	Пусть $S \subset X^*$.
 
-	 Тогда $S^\bot = \left\{ x \mid x \in X, \forall f \in S \Rightarrow f(x) = 0 \right\}$.
+	 Тогда $S^\bot = \left\{ x \mid x \in X, \forall f \in S \implies f(x) = 0 \right\}$.
 \end{definition}
 Заметим, что независимо от $S$, $S^\bot$ - замкнуто, в силу непрерывности $f(x)$
 
@@ -122,11 +122,87 @@
 	$\Cl R(A) = \left( \Ker A^*\right)^\bot$
 \end{theorem}
 \begin{proof}
-	\todo
+	\begin{enumerate}[leftmargin=*]
+		\item 
+		Пусть $y \in R(A)$, это значит, что $y = Ax$ для некоторого $x$.
+		Рассмотрим $\phi \in \Ker A^*$. По определению, $A^*\phi = 0$, это значит, 
+		что $\forall x \in X \implies \phi(Ax) = \phi(y) = 0$.
+		Следовательно, $y \in \left( \Ker A^*\right)^\bot$
+		\item 
+		Пусть теперь $y \in \Cl R(A) \implies \exists y_n : y_n \rightarrow y$.
+		По предыдущему пункту, $y_n \in \left( \Ker A^*\right)^\bot$.
+		$\forall \phi \in \Ker A^* \implies \phi(y_n) = 0$, при этом, $\phi$ - непрерывен.
+		$\phi(y_n) \rightarrow \phi(y) = 0 \implies y \in \left( \Ker A^*\right)^\bot$
+		\item
+		Осталось проверить, что $\left( \Ker A^*\right)^\bot \subset \Cl R(A)$.
+		Вместо этого, мы проверим эквивалентный факт:
+		$y \not\in \Cl R(a) \implies y \not\in \left( \Ker A^*\right)^\bot$.
+		Итак, пусть $L = \Cl R(A)$. Очевидно, это линейное подпространство в $Y$.
+		Пусть $\widehat{L} = \left\{ z + ty \mid z \in L, t \in \mathbb{R}\right\}$.
+		Очевидно, $\widehat{L}$ - линейное подпространство $Y$.
+		Рассмотрим $\phi : X \rightarrow \mathbb{R}$, $\phi(z + ty) \defeq t$.
+		По теорема Хана-Банаха, его можно продлить на $Y$ с сохранением нормы:
+		$\exists \widehat{\phi} \in Y^* : \restr{\widehat{\phi}}{\widehat{L}} = \phi$.
+		Причем, если $z \in L$, то $\widehat{\phi}(z) = 0$, значит $\widehat{\phi} \in \Ker A^*$.
+		Но, при этом $\widehat{\phi}(y) = 1 \implies y \not\in \left( \Ker A^*\right)^\bot$.
+	\end{enumerate}
+
 \end{proof}
 \begin{theorem}
-	$R(A) = \Cl R(A) \Rightarrow \Cl R(A^*) = \left( \Ker A\right)^\bot$
+	$R(A) = \Cl R(A) \implies R(A^*) = \left( \Ker A\right)^\bot$
 \end{theorem}
 \begin{proof}
-	\todo
+	Рассмотрим $f \in R(A^*)$. По определению, для некоторого $\phi$, $f = A^*\phi$.
+	Возьмем теперь $x \in \Ker A$. $Ax = 0 \implies f(x) = (\phi \circ A)(x) = \phi(Ax) = \phi(0) = 0$.
+	Значит, $R(A^*) \subset \left( \Ker A\right)^\bot$.
+	
+	Пусть теперь $f \in \left( \Ker A\right)^\bot$. В силу того, что $R(A)$ - $B$-пространство 
+	(как замкнутое линейное подпространство другого $B$-пространства), 
+	Возьмем произвольный $y \in R(A)$, и $x$ такой, что $y = Ax$,
+	и запишем $\phi$ как $\phi(y) \defeq f(x)$. Покажем, что такое определение 
+	действительно корректное.
+	Пусть $y = Ax'$; тогда $A(x - x') = 0 \implies x - x' \in \Ker A$.
+	Поэтому $f(x - x') = 0 \implies f(x) = f(x')$. Это значит, что значение $\phi$ не
+	зависит от выбора конкретного $x$. Значит, наша формула корректная.
+	Осталось показать ограниченность $\norm{\phi}$.
+
+	Рассмотрим ассоциированный оператор 
+	$\mathcal{U}_A : \sfrac{X}{\Ker A} \rightarrow R(A)$.
+	Покажем, что он непрерывен.    
+
+	$\norm{\mathcal{U}_A} = \sup\limits_{\norm{\eqcls{x}} = 1} \norm{\mathcal{U}_A\eqcls{x}}$,
+	так как $\norm{\eqcls{x}} = \inf\limits_{z \in \eqcls{x}} \norm{z} = 1$, 
+	то существует $x' \in \eqcls{x} : \norm{x'} \leqslant 2$.
+	Возьмем $x'$ в качестве представителя. Тогда 
+	\begin{equation}
+		\begin{split}
+			\norm{\mathcal{U}_A} & = 
+			\sup\limits_{\norm{\eqcls{x}} = 1} \norm{\mathcal{U}_A} \\
+			& \leqslant \sup\limits_{\norm{x} \leqslant 2} \norm{Ax} \\
+			& \leqslant \sup\limits_{\norm{y} \leqslant 1} \norm{A(2y)} \\
+			& = 2 \sup\limits_{\norm{y} \leqslant 1} \norm{Ay} \\
+			& = 2 \norm{A}
+		\end{split}
+	\end{equation}
+	Заметим еще, что он биективен, так как все точки $x$ для которых $y = Ax$ 
+	(для какого-то одного фиксированного
+	$y$) лежат в одном классе эквивалентности. Это значит, что по теореме Банаха о гомеоморфизме, 
+	$\mathcal{U}_A^{-1}$ - непрерывен. Напомним, что норма на элементах $\sfrac{X}{\Ker A}$
+	определяется как 
+	\begin{gather}
+		\norm{\eqcls{x}} \defeq \inf\limits_{z \in \eqcls{x}} \norm{z}
+	\end{gather}
+	По непрерывности обратного оператора, получаем $\norm{\eqcls{x}} \leqslant K \cdot \norm{y}$.
+	Нам нужно сделать неравенство строгим, поэтому считаем, что 
+	$\norm{\eqcls{x}} < 2K \cdot \norm{y}$. Дальше, по определению инфимума, 
+	$\exists z \in \eqcls{x} : \norm{z} < 2K \cdot \norm{y}$. Значит, $z - x \in \Ker A$.
+	В силу того, что значение функционала $f$ одно и то же внутри класса эквивалентности,
+	можно вместо $x$ взять $z$. Таким образом, 
+	$\abs{\phi(y)} \leqslant 2K \cdot \norm{f} \cdot \norm{y}$, из этого следует, что 
+	$\phi$ - непрерывен. 
+	Далее, по теореме Хана-Банаха, продолжим $\phi$ на все пространство и получим, что 
+	$\exists \widehat{\phi} \in Y^* : f = A^*\widehat{\phi} \implies f \in R(A^*)$
+		
 \end{proof}
+
+

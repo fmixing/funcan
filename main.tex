@@ -2,6 +2,9 @@
 
 \usepackage[sumlimits,intlimits]{amsmath}
 \usepackage{enumitem,linegoal}
+\usepackage{xfrac}
+\usepackage{faktor}
+\usepackage{stmaryrd}
 \usepackage{calc}
 \usepackage{wrapfig}
 \usepackage{blindtext}
@@ -61,8 +64,11 @@
 
 \newcommand{\todo}{\textsc{\textbf{TODO}}}
 \newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\eqcls}[1]{\left[#1 \right]}
 \newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
 \newcommand{\normp}[1]{\norm{#1}_p}
+\newcommand\restr[2]{{\left.\kern-\nulldelimiterspace #1 \vphantom{\big|} \right|_{#2} }}
 \newcommand{\normpp}[2]{\norm{#1}_{#2}}
 \newcommand{\intl}[1]{\int\limits_{#1}}
 \newcommand{\veel}[1]{\bigvee\limits_{#1}}
