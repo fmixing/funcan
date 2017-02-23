@@ -2,77 +2,80 @@
 
 Здесь и далее, если не оговорено иного, считаем, что мы находимся в $В$-пространствах.
 
-\begin{definition}[Сопряженное пространство]
-	$X^* = \left\{ f : X \xrightarrow[\text{непр.}]{\text{лин.}} \mathbb{R} \right\}$ - пространство сопряженное к $X$.
+\begin{definition}[сопряженное пространство]
+	$X^* = \left\{ f : X \xrightarrow[\text{непр.}]{\text{лин.}} \mathbb{R} \right\}$ "--- пространство сопряженное к $X$.
 \end{definition}
-Заметим, что это пространство линейных функционалов, а значит, мы можем ввести в нем норму, как норму линейного функционала.
+Заметим, что это пространство линейных функционалов, а значит, мы можем ввести в нем норму как норму линейного функционала.
 \begin{gather}
-	\norm{f} = \sup\limits_{\norm{x} \leqslant 1} \abs{f(x)} 
+    \norm{f} = \sup_{\mathclap{\norm{x} \leqslant 1}} \abs{f(x)}  \\
 \end{gather}
-По свойствам числовой оси, получаем, что $X^*$ - всегда банахово (независимо от $X$).
+По свойствам числовой оси получаем, что $X^*$ всегда банахово (независимо от $X$).
 
 Рассмотрим теперь $A \in \mathcal{L}(X, Y)$. Пусть $f(x) = \phi(Ax)$, где $\phi \in Y^*$.
 \begin{definition}
-	Сопряженный оператор к $A$ имеет вид: $A^*(\phi) = \phi \circ A$.
+	Сопряженный оператор к $A$ имеет вид $A^*(\phi) = \phi \circ A$.
 \end{definition}
 \begin{statement}
-	Если $A$ - нерперывный, то $A^*$ - тоже непрерывный.
+	Если $A$ нерперывный, то $A^*$ тоже непрерывный.
 \end{statement}
 \begin{proof}
-	Пусть $A$ - непрерывен, тогда он ограничен. Тогда мы можем написать
+	Пусть $A$ непрерывен, тогда он ограничен. Тогда справедливо
 	\begin{gather}
-		\norm{A^*(\phi)} \leqslant \norm{\phi} \cdot \norm{A} \label{1.2}
+        \norm{A^*(\phi)} \leqslant \norm{\phi} \cdot \norm{A}\text{.} \label{1.2}
 	\end{gather}
-	Переходя к $\sup$ по $\phi$, получаем, что нужно.
+	Переходя к $\sup$ по $\phi$ получаем непрерывность $A^*$.
 \end{proof}
-\begin{theorem}
-	$\norm{A^*} = \norm{A}$ \label{th1.2}
+\begin{theorem} \label{th1.2}
+	$\norm{A^*} = \norm{A}$
 \end{theorem}
 \begin{proof}
-	Мы доказали неравенство в одну сторону (неравенство \ref{1.2}). Докажем в другую. 
+	Мы доказали неравенство в одну сторону (неравенство \ref{1.2}). Докажем в другую.
 	По определению $\sup$, $\forall \Epsilon > 0, \exists x_{\Epsilon} : \norm{x_{\Epsilon}} = 1 \implies \norm{A} - \Epsilon < \norm{Ax_{\Epsilon}}$.
-	Пусть $Z = \mathcal{L}(Ax_{\Epsilon})$. Рассмотрим $f : Z \rightarrow \mathbb{R}$, $f(z) = \alpha\norm{Ax_{\Epsilon}}$. Очевидно, что $f \in Y^*$. 
-	Поэтому, по теореме Хана-Банаха, распростваним $f$ на все $Y$, и назовем ее $\phi_{\Epsilon}$.
-	Тогда, по свойствам $f$, $\norm{\phi_{\Epsilon}} = 1, \phi_{\Epsilon}(Ax_{\Epsilon}) = \norm{Ax_{\Epsilon}}$.
-	Слудовательно, $\norm{A} - \Epsilon < \phi_{\Epsilon}(Ax_{\Epsilon}) = A^*(\phi_{\Epsilon}, x_{\Epsilon})$.
-	Тогда, $\norm{A} - \Epsilon < \norm{A^*} \cdot \norm{\phi_{\Epsilon}} \cdot \norm{x_{\Epsilon}} = \norm{A^*}$. 
+	Пусть $Z = \mathcal{L}(Ax_{\Epsilon})$. Рассмотрим $f : Z \rightarrow \mathbb{R}$, $f(z) = \alpha\norm{Ax_{\Epsilon}}$.
+    Очевидно, что $f \in Y^*$.
+	Поэтому, по теореме Хана-Банаха распространим $f$ на все $Y$, и назовем ее $\phi_{\Epsilon}$.
+	Тогда, по свойствам $f$, $\norm{\phi_{\Epsilon}} = 1$, $\phi_{\Epsilon}(Ax_{\Epsilon}) = \norm{Ax_{\Epsilon}}$.
+	Слeдовательно, $\norm{A} - \Epsilon < \phi_{\Epsilon}(Ax_{\Epsilon}) = A^*(\phi_{\Epsilon}, x_{\Epsilon})$.
+	Тогда $\norm{A} - \Epsilon < \norm{A^*} \cdot \norm{\phi_{\Epsilon}} \cdot \norm{x_{\Epsilon}} = \norm{A^*}$.
 	Переходя к $\sup$ по $\Epsilon$ получаем нужное неравенство.
 \end{proof}
 
 Пример: \todo
 
-\begin{theorem}[Теорема Рисса]
-	Пусть $H$ - гильбертово пространство. Тогда $\forall f \in H^*$, $f$ можно представить как $f(x) = \scalarp{x}{y}$, где $y \in H, \norm{f} = \norm{y}$.
+\begin{theorem}[теорема Рисса]
+	Пусть $H$ "--- гильбертово пространство.
+    Тогда $\forall f \in H^*$, $f$ можно представить как $f(x) = \scalarp{x}{y}$, где $y \in H$, $\norm{f} = \norm{y}$.
 \end{theorem}
 \begin{proof}
-	Докажем в 3 этапа:
+	Докажем в 3 этапа.
 	\begin{enumerate}
-		\item Построим соотвестсвующий функционал по данному $y$.
-		\item Докажем, что этому функционалу соответствует только один $y$.
-		\item Найдем $y$ для данного функционала $f$.
-	\end{enumerate}
-	\begin{enumerate}[leftmargin=*]
-	\item
-	Пусть $g(x) = \scalarp{x}{y}$. Очевидно, что это линейный функционал. 
-	По неравенству Шварца $\abs{g(x)} \leqslant \norm{y} \norm{x} \implies \norm{g} \leqslant \norm{y}$. Это значит, что $g$ - ограничен.
-	Возьмем $x = \frac{y}{\norm{y}}$. 
-	\begin{gather*}
-		g\left(\frac{y}{\norm{y}}\right) = \scalarp{\frac{y}{\norm{y}}}{y} = \frac{1}{\norm{y}}\scalarp{y}{y} = \norm{y}
-	\end{gather*}
-	Сопоставляя это с тем, что $\norm{g} \leqslant \norm{y}$, получаем, что $\norm{g} = \norm{y}$.
-	\item
-	Пусть для какого-то $\widetilde{y}$, $g(x) = \scalarp{x}{\widetilde{y}}$.
-	Тогда $0 = \scalarp{x}{y} - \scalarp{x}{\widetilde{y}} = \scalarp{x}{y - \widetilde{y}}$. Пусть $x = y - \widetilde{y}$,  
-	$\implies \scalarp{y - \widetilde{y}}{y - \widetilde{y}} = 0 \implies y = \widetilde{y}$
-	\item
-	Рассмотрим произвольный функционал $f \in H^*$. Как известно, $\Ker f$ - гиперплоскость, т.е. 
-	$\codim H_1 = \dim H_2 = 1$, где $H_1 = \Ker f, H_2 = H_1^\bot$, и $H = H_1 \oplus H_2$.
-	Это по определению значит, что $x$ единственным образом представим как $x = x_1 + x_2$, где $x_1 \in H_1, x_2 \in H_2$.
-	Поэтому, $f(x) = f(x_1) + f(x_2) = f(x_2) = f(\alpha e) = \alpha \cdot f(e)$, так как $x_1 \in \Ker f$ а $e$ - базисный вектор из $H_2$.
-	Итак, $\alpha \cdot f(x) = \scalarp{x}{y} \Leftrightarrow f(e) = \scalarp{e}{y}$. 
-	Очевидно, $y$ можно брать из $H_2$, так как если у него будет компонента из $\Ker f$, то она будет ортогональна $e$. 
-	Поэтому, считаем, что $y = \beta e$.
-	Получаем $f(e) = \scalarp{e}{\beta e} = \beta \cdot \norm{e}^2$. Положим $\beta = \frac{f(e)}{\norm{e}^2}$, тогда $y = \frac{f(e)}{\norm{e}^2}e$.
+		\item Построим соотвестсвующий функционал по данному $y$. \\
+            Пусть $g(x) = \scalarp{x}{y}$. Очевидно, что это линейный функционал.
+            По неравенству Шварца $\abs{g(x)} \leqslant \norm{y} \norm{x} \implies \norm{g} \leqslant \norm{y}$.
+            Это значит, что $g$ ограничен.
+            Возьмем $x = \frac{y}{\norm{y}}$.
+            \[
+                g\mathopen{}\left(\frac{y}{\norm{y}}\mathclose{}\right) = \scalarp{\frac{y}{\norm{y}}}{y}
+                    = \frac{1}{\norm{y}}\scalarp{y}{y} = \norm{y}
+            \]
+            Сопоставляя это с тем, что $\norm{g} \leqslant \norm{y}$, получаем, что $\norm{g} = \norm{y}$.
+		\item Докажем, что этому функционалу соответствует только один $y$. \\
+            Пусть для какого-то $\widetilde{y}$ справедливо $g(x) = \scalarp{x}{\widetilde{y}}$.
+            Тогда $0 = \scalarp{x}{y} - \scalarp{x}{\widetilde{y}} = \scalarp{x}{y - \widetilde{y}}$.
+            Пусть $x = y - \widetilde{y}$, тогда
+            $\scalarp{y - \widetilde{y}}{y - \widetilde{y}} = 0 \implies y = \widetilde{y}$
+		\item Найдем $y$ для данного функционала $f$. \\
+            Рассмотрим произвольный функционал $f \in H^*$.
+            Как известно, $\Ker f$ "--- гиперплоскость, т.е.
+            $\codim H_1 = \dim H_2 = 1$, где $H_1 = \Ker f$, $H_2 = H_1^\bot$, и $H = H_1 \oplus H_2$.
+            Это по определению значит, что $x$ единственным образом представим как $x = x_1 + x_2$, где $x_1 \in H_1$, $x_2 \in H_2$.
+            Поэтому, $f(x) = f(x_1) + f(x_2) = f(x_2) = f(\alpha e) = \alpha \cdot f(e)$,
+            так как $x_1 \in \Ker f$, а $e$ "--- базисный вектор из $H_2$.
+            Итак, $\alpha \cdot f(x) = \scalarp{x}{y} \Leftrightarrow f(e) = \scalarp{e}{y}$.
+            Очевидно, $y$ можно брать из $H_2$, так как если у него будет компонента из $\Ker f$, то она будет ортогональна $e$.
+            Поэтому, считаем, что $y = \beta e$.
+            Получаем $f(e) = \scalarp{e}{\beta e} = \beta \cdot \norm{e}^2$.
+            Положим $\beta = \frac{f(e)}{\norm{e}^2}$, тогда $y = \frac{f(e)}{\norm{e}^2}e$.
 	\end{enumerate}
 \end{proof}
 
@@ -82,127 +85,121 @@
 \section{Ортогональное дополнение в банаховых пространствах}
 
 
-\begin{definition}[Ортогональное дополнение в $B$- пространстве]
+\begin{definition}[ортогональное дополнение в $B$-пространстве]
 	Пусть $S \subset X$.
 
-	 Тогда $S^\bot = \left\{ f \mid f \in X^*, \forall x \in S \implies f(x) = 0 \right\}$.
+	Тогда $S^\bot = \left\{ f \mid f \in X^*, \forall x \in S \implies f(x) = 0 \right\}$.
 \end{definition}
 
-\begin{definition}[Ортогональное дополнение в сопряженном пространстве]
+\begin{definition}[ортогональное дополнение в сопряженном пространстве]
 	Пусть $S \subset X^*$.
 
 	 Тогда $S^\bot = \left\{ x \mid x \in X, \forall f \in S \implies f(x) = 0 \right\}$.
 \end{definition}
-Заметим, что независимо от $S$, $S^\bot$ - замкнуто, в силу непрерывности $f(x)$
+Заметим, что независимо от $S$, $S^\bot$ замкнуто в силу непрерывности $f(x)$
 
-\begin{statement}
-	\begin{minipage}[t]{\linegoal}
-	\begin{enumerate}[leftmargin=*]
-		\item 	$X^\bot = \left\{ 0\right\}$
-		\item   $X^{*\bot} = \left\{ 0\right\}$
+\begin{statement} \ 
+	\begin{enumerate}
+		\item $X^\bot = \left\{ 0\right\}$;
+		\item $X^{*\bot} = \left\{ 0\right\}$.
 	\end{enumerate}
-	\end{minipage}
 \end{statement}
-\begin{proof}
-	\begin{enumerate}[leftmargin=*]
-		\item $f \in X^\bot$, Если $\forall x \in X, f(x) = 0 $, то $f \equiv 0$
-		\item Рассмотрим $\forall f \in X^*$, очевидно, $f(0) = 0$, а это значит, что
-		$0 \in X^{*\bot}$. Предположим, $\exists x_0 \neq 0 : x_0 \in X^{*\bot}$.
-		По теореме Хана-Банаха (а точнее, по следствию, которое мы доказали в теореме \ref{th1.2}), 
-		$\exists f \in X^*$, такой, что
-		$f(x_0) = \norm{x_0} \neq 0$, следовательно, $x_0 \not\in X^{*\bot}$.
+\begin{proof}\ 
+	\begin{enumerate}
+		\item $f \in X^\bot$. Если $\forall x \in X, f(x) = 0 $, то $f \equiv 0$.
+		\item Рассмотрим $\forall f \in X^*$. Очевидно, $f(0) = 0$, а это значит, что $0 \in X^{*\bot}$.
+            Предположим, что $\exists x_0 \neq 0 : x_0 \in X^{*\bot}$.
+            По теореме \ref{th1.2}:
+            \[
+                \exists f \in X^* : f(x_0) = \norm{x_0} \neq 0 \implies x_0 \not\in X^{*\bot}\text{.} \qedhere
+            \]
 	\end{enumerate}
 \end{proof}
 
-\begin{definition}
-	$R(A) \defeq \left\{ Ax \mid x \in X\right\}$
+\begin{definition}[множество значений оператора]
+	$R(A) \defeq \left\{ Ax \mid x \in X\right\}$.
 \end{definition}
 
 \begin{theorem}
-	$\Cl R(A) = \left( \Ker A^*\right)^\bot$
+	$\Cl R(A) = \left( \Ker A^*\right)^\bot$.
 \end{theorem}
-\begin{proof}
-	\begin{enumerate}[leftmargin=*]
-		\item 
-		Пусть $y \in R(A)$, это значит, что $y = Ax$ для некоторого $x$.
-		Рассмотрим $\phi \in \Ker A^*$. По определению, $A^*\phi = 0$, это значит, 
-		что $\forall x \in X \implies \phi(Ax) = \phi(y) = 0$.
-		Следовательно, $y \in \left( \Ker A^*\right)^\bot$
-		\item 
-		Пусть теперь $y \in \Cl R(A) \implies \exists y_n : y_n \rightarrow y$.
-		По предыдущему пункту, $y_n \in \left( \Ker A^*\right)^\bot$.
-		$\forall \phi \in \Ker A^* \implies \phi(y_n) = 0$, при этом, $\phi$ - непрерывен.
-		$\phi(y_n) \rightarrow \phi(y) = 0 \implies y \in \left( \Ker A^*\right)^\bot$
+\begin{proof}\ 
+	\begin{enumerate}
 		\item
-		Осталось проверить, что $\left( \Ker A^*\right)^\bot \subset \Cl R(A)$.
-		Вместо этого, мы проверим эквивалентный факт:
-		$y \not\in \Cl R(a) \implies y \not\in \left( \Ker A^*\right)^\bot$.
-		Итак, пусть $L = \Cl R(A)$. Очевидно, это линейное подпространство в $Y$.
-		Пусть $\widehat{L} = \left\{ z + ty \mid z \in L, t \in \mathbb{R}\right\}$.
-		Очевидно, $\widehat{L}$ - линейное подпространство $Y$.
-		Рассмотрим $\phi : X \rightarrow \mathbb{R}$, $\phi(z + ty) \defeq t$.
-		По теорема Хана-Банаха, его можно продлить на $Y$ с сохранением нормы:
-		$\exists \widehat{\phi} \in Y^* : \restr{\widehat{\phi}}{\widehat{L}} = \phi$.
-		Причем, если $z \in L$, то $\widehat{\phi}(z) = 0$, значит $\widehat{\phi} \in \Ker A^*$.
-		Но, при этом $\widehat{\phi}(y) = 1 \implies y \not\in \left( \Ker A^*\right)^\bot$.
+            Пусть $y \in R(A)$, это значит, что $y = Ax$ для некоторого $x$.
+            Рассмотрим $\phi \in \Ker A^*$. По определению, $A^*\phi = 0$, это значит,
+            что $\forall x \in X \implies \phi(Ax) = \phi(y) = 0$.
+            Следовательно, $y \in \left( \Ker A^*\right)^\bot$
+		\item
+            Пусть теперь $y \in \Cl R(A) \implies \exists y_n : y_n \rightarrow y$.
+            По предыдущему пункту, $y_n \in \left( \Ker A^*\right)^\bot$.
+            $\forall \phi \in \Ker A^* \implies \phi(y_n) = 0$, при этом, $\phi$ непрерывен.
+            $\phi(y_n) \rightarrow \phi(y) = 0 \implies y \in \left( \Ker A^*\right)^\bot$.
+		\item
+            Осталось проверить, что $\left( \Ker A^*\right)^\bot \subset \Cl R(A)$.
+            Вместо этого, мы проверим эквивалентный факт:
+            $y \not\in \Cl R(a) \implies y \not\in \left( \Ker A^*\right)^\bot$.
+            Итак, пусть $L = \Cl R(A)$. Очевидно, это линейное подпространство в $Y$.
+            Пусть $\widehat{L} = \left\{ z + ty \mid z \in L, t \in \mathbb{R}\right\}$.
+            Очевидно, $\widehat{L}$ "--- линейное подпространство $Y$.
+            Рассмотрим $\phi : X \rightarrow \mathbb{R}$, $\phi(z + ty) \defeq t$.
+            По теорема Хана-Банаха, его можно продлить на $Y$ с сохранением нормы:
+            $\exists \widehat{\phi} \in Y^* : \restr{\widehat{\phi}}{\widehat{L}} = \phi$.
+            Причем, если $z \in L$, то $\widehat{\phi}(z) = 0$, значит $\widehat{\phi} \in \Ker A^*$.
+            Но, при этом $\widehat{\phi}(y) = 1 \implies y \not\in \left( \Ker A^*\right)^\bot$. \qedhere
 	\end{enumerate}
-
 \end{proof}
 \begin{theorem}
-	$R(A) = \Cl R(A) \implies R(A^*) = \left( \Ker A\right)^\bot$
+	$R(A) = \Cl R(A) \implies R(A^*) = \left( \Ker A\right)^\bot$.
 \end{theorem}
 \begin{proof}
 	Рассмотрим $f \in R(A^*)$. По определению, для некоторого $\phi$, $f = A^*\phi$.
 	Возьмем теперь $x \in \Ker A$. $Ax = 0 \implies f(x) = (\phi \circ A)(x) = \phi(Ax) = \phi(0) = 0$.
 	Значит, $R(A^*) \subset \left( \Ker A\right)^\bot$.
 	
-	Пусть теперь $f \in \left( \Ker A\right)^\bot$. В силу того, что $R(A)$ - $B$-пространство 
-	(как замкнутое линейное подпространство другого $B$-пространства), 
+	Пусть теперь $f \in \left( \Ker A\right)^\bot$. В силу того, что $R(A)$ - $B$-пространство
+	(как замкнутое линейное подпространство другого $B$-пространства),
 	Возьмем произвольный $y \in R(A)$, и $x$ такой, что $y = Ax$,
-	и запишем $\phi$ как $\phi(y) \defeq f(x)$. Покажем, что такое определение 
+	и запишем $\phi$ как $\phi(y) \defeq f(x)$. Покажем, что такое определение
 	действительно корректное.
 	Пусть $y = Ax'$; тогда $A(x - x') = 0 \implies x - x' \in \Ker A$.
 	Поэтому $f(x - x') = 0 \implies f(x) = f(x')$. Это значит, что значение $\phi$ не
 	зависит от выбора конкретного $x$. Значит, наша формула корректная.
 	Осталось показать ограниченность $\norm{\phi}$.
 
-	Рассмотрим ассоциированный оператор 
+	Рассмотрим ассоциированный оператор
 	$\mathcal{U}_A : \sfrac{X}{\Ker A} \rightarrow R(A)$.
-	Покажем, что он непрерывен.    
+	Покажем, что он непрерывен.
 
-	$\norm{\mathcal{U}_A} = \sup\limits_{\norm{\eqcls{x}} = 1} \norm{\mathcal{U}_A\eqcls{x}}$,
-	так как $\norm{\eqcls{x}} = \inf\limits_{z \in \eqcls{x}} \norm{z} = 1$, 
+	$\norm{\mathcal{U}_A} = \sup_{\norm{\eqcls{x}} = 1} \norm{\mathcal{U}_A\eqcls{x}}$,
+	так как $\norm{\eqcls{x}} = \inf_{z \in \eqcls{x}} \norm{z} = 1$,
 	то существует $x' \in \eqcls{x} : \norm{x'} \leqslant 2$.
-	Возьмем $x'$ в качестве представителя. Тогда 
+	Возьмем $x'$ в качестве представителя. Тогда
 	\begin{equation}
 		\begin{split}
-			\norm{\mathcal{U}_A} & = 
-			\sup\limits_{\norm{\eqcls{x}} = 1} \norm{\mathcal{U}_A\eqcls{x}} \\
-			& \leqslant \sup\limits_{\norm{x} \leqslant 2} \norm{Ax} \\
-			& \leqslant \sup\limits_{\norm{y} \leqslant 1} \norm{A(2y)} \\
-			& = 2 \sup\limits_{\norm{y} \leqslant 1} \norm{Ay} \\
-			& = 2 \norm{A}
+			\norm{\mathcal{U}_A} & =
+            \sup_{\mathclap{\norm{\eqcls{x}} = 1}} \norm{\mathcal{U}_A\eqcls{x}}
+            \leqslant \sup_{\mathclap{\norm{x} \leqslant 2}} \norm{Ax}
+            \leqslant \sup_{\mathclap{\norm{y} \leqslant 1}} \norm{A(2y)} \\
+            & = 2 \cdot \sup_{\mathclap{\norm{y} \leqslant 1}} \norm{Ay}
+			= 2 \norm{A}
 		\end{split}
 	\end{equation}
-	Заметим еще, что он биективен, так как все точки $x$ для которых $y = Ax$ 
-	(для какого-то одного фиксированного
-	$y$) лежат в одном классе эквивалентности. Это значит, что по теореме Банаха о гомеоморфизме, 
-	$\mathcal{U}_A^{-1}$ - непрерывен. Напомним, что норма на элементах $\sfrac{X}{\Ker A}$
-	определяется как 
+	Заметим еще, что он биективен, так как все точки $x$ для которых $y = Ax$
+	(для какого-то одного фиксированного $y$) лежат в одном классе эквивалентности.
+    Это значит, что по теореме Банаха о гомеоморфизме, $\mathcal{U}_A^{-1}$ непрерывен.
+    Напомним, что норма на элементах $\sfrac{X}{\Ker A}$ определяется как
 	\begin{gather}
-		\norm{\eqcls{x}} \defeq \inf\limits_{z \in \eqcls{x}} \norm{z}
+        \norm{\eqcls{x}} \defeq \inf_{\mathclap{z \in \eqcls{x}}} \norm{z}\text{.}
 	\end{gather}
 	По непрерывности обратного оператора, получаем $\norm{\eqcls{x}} \leqslant K \cdot \norm{y}$.
-	Нам нужно сделать неравенство строгим, поэтому считаем, что 
-	$\norm{\eqcls{x}} < 2K \cdot \norm{y}$. Дальше, по определению инфимума, 
+	Нам нужно сделать неравенство строгим, поэтому считаем, что
+	$\norm{\eqcls{x}} < 2K \cdot \norm{y}$. Дальше, по определению инфимума,
 	$\exists z \in \eqcls{x} : \norm{z} < 2K \cdot \norm{y}$. Значит, $z - x \in \Ker A$.
 	В силу того, что значение функционала $f$ одно и то же внутри класса эквивалентности,
-	можно вместо $x$ взять $z$. Таким образом, 
-	$\abs{\phi(y)} \leqslant 2K \cdot \norm{f} \cdot \norm{y}$, из этого следует, что 
-	$\phi$ - непрерывен. 
-	Далее, по теореме Хана-Банаха, продолжим $\phi$ на все пространство и получим, что 
-	$\exists \widehat{\phi} \in Y^* : f = A^*\widehat{\phi} \implies f \in R(A^*)$
-		
+	можно вместо $x$ взять $z$. Таким образом,
+	$\abs{\phi(y)} \leqslant 2K \cdot \norm{f} \cdot \norm{y}$, из этого следует, что
+	$\phi$ непрерывен.
+	Далее, по теореме Хана-Банаха, продолжим $\phi$ на все пространство и получим, что
+	$\exists \widehat{\phi} \in Y^* : f = A^*\widehat{\phi} \implies f \in R(A^*)$.
 \end{proof}
-
-
