@@ -30,7 +30,7 @@
 \end{theorem}
 \begin{proof}
 	Мы доказали неравенство в одну сторону (неравенство \ref{1.2}). Докажем в другую.
-	По определению $\sup$, $\forall \Epsilon > 0, \exists x_{\Epsilon} : \norm{x_{\Epsilon}} = 1 \implies \norm{A} - \Epsilon < \norm{Ax_{\Epsilon}}$.
+	По определению $\sup$: $\forall \Epsilon > 0, \exists x_{\Epsilon} : \norm{x_{\Epsilon}} = 1 \implies \norm{A} - \Epsilon < \norm{Ax_{\Epsilon}}$.
 	Пусть $Z = \mathcal{L}(Ax_{\Epsilon})$. Рассмотрим $f : Z \rightarrow \mathbb{R}$, $f(z) = \alpha\norm{Ax_{\Epsilon}}$.
     Очевидно, что $f \in Y^*$.
 	Поэтому, по теореме Хана-Банаха распространим $f$ на все $Y$, и назовем ее $\phi_{\Epsilon}$.
@@ -143,7 +143,7 @@
             Пусть $\widehat{L} = \left\{ z + ty \mid z \in L, t \in \mathbb{R}\right\}$.
             Очевидно, $\widehat{L}$ "--- линейное подпространство $Y$.
             Рассмотрим $\phi : X \rightarrow \mathbb{R}$, $\phi(z + ty) \defeq t$.
-            По теорема Хана-Банаха, его можно продлить на $Y$ с сохранением нормы:
+            По теорема Хана-Банаха его можно продлить на $Y$ с сохранением нормы:
             $\exists \widehat{\phi} \in Y^* : \restr{\widehat{\phi}}{\widehat{L}} = \phi$.
             Причем, если $z \in L$, то $\widehat{\phi}(z) = 0$, значит $\widehat{\phi} \in \Ker A^*$.
             Но, при этом $\widehat{\phi}(y) = 1 \implies y \not\in \left( \Ker A^*\right)^\bot$. \qedhere
@@ -192,7 +192,7 @@
 	\begin{gather}
         \norm{\eqcls{x}} \defeq \inf_{\mathclap{z \in \eqcls{x}}} \norm{z}\text{.}
 	\end{gather}
-	По непрерывности обратного оператора, получаем $\norm{\eqcls{x}} \leqslant K \cdot \norm{y}$.
+	По непрерывности обратного оператора получаем $\norm{\eqcls{x}} \leqslant K \cdot \norm{y}$.
 	Нам нужно сделать неравенство строгим, поэтому считаем, что
 	$\norm{\eqcls{x}} < 2K \cdot \norm{y}$. Дальше, по определению инфимума,
 	$\exists z \in \eqcls{x} : \norm{z} < 2K \cdot \norm{y}$. Значит, $z - x \in \Ker A$.
