@@ -29,7 +29,12 @@
 \usepackage{epigraph}
 \usepackage{titlesec}
 \usepackage{mathtools}
+\usepackage[hidelinks]{hyperref}
 %\setmainfont[Ligatures=TeX,SmallCapsFont={Times New Roman}]{Palatino Linotype}
+\hypersetup{%
+    colorlinks=true,
+    linkcolor=blue
+}
 \DeclareMathOperator{\grad}{grad}
 \DeclareMathOperator{\Div}{div}
 \DeclareMathOperator{\rot}{rot}
@@ -84,7 +89,7 @@
 \newcommand{\sumlr}[2]{\sum\limits_{#1}^{#2}}
 \newcommand{\feps}{\forall\varepsilon}
 \newcommand{\Epsilon}{\varepsilon}
-\newcommand{\scalarp}[2]{\langle #1 , #2\rangle}
+\newcommand{\scalarp}[2]{\left\langle #1 , #2\right\rangle}
 \newcommand{\set}[1]{\left\{#1\right\}}
 \renewcommand{\phi}{\varphi}
 \maketitle
