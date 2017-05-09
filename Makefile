@@ -1,10 +1,10 @@
 all: main.tex build compile
-compile:
-	#rm -f build/main.aux
+compile: 1-operators.tex
+#rm -f build/main.aux
 	rubber --into=build --pdf main.tex
 push: compile sync 
 	git push --all
-sync:
+sync: main.tex
 	git stash
 	mv build/main.pdf ../
 	git checkout gh-pages
