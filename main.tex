@@ -1,6 +1,5 @@
 \documentclass{article}
 
-\usepackage[sumlimits,intlimits]{amsmath}
 \usepackage{enumitem,linegoal}
 \usepackage{xfrac}
 \usepackage{faktor}
@@ -17,7 +16,6 @@
 \usepackage[T1,T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[russian]{babel}
-%\usepackage{geometry}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 \usepackage[mathscr]{euscript}
 \usepackage{microtype}
@@ -30,11 +28,14 @@
 \usepackage{titlesec}
 \usepackage{mathtools}
 \usepackage[hidelinks]{hyperref}
-%\setmainfont[Ligatures=TeX,SmallCapsFont={Times New Roman}]{Palatino Linotype}
+
+\selectlanguage{russian}
+
 \hypersetup{%
     colorlinks=true,
     linkcolor=blue
 }
+
 \DeclareMathOperator{\grad}{grad}
 \DeclareMathOperator{\Div}{div}
 \DeclareMathOperator{\rot}{rot}
@@ -43,13 +44,11 @@
 \DeclareMathOperator{\codim}{codim}
 \DeclareMathOperator{\Cl}{Cl}
 \DeclareMathOperator{\Int}{Int}
-\selectlanguage{russian}
-
 
 \title{%
-	Функциональный анализ 6 семестр \\
-	\large Конспект лекций Додонова Н. Ю.}
-\author{shared with $\heartsuit$ by artemZholus}
+    \sc{Функциональный анализ, 6 семестр} \\
+    \large Конспект лекций Додонова Н. Ю.}
+\author{\url{https://github.com/artemZholus/funcan}}
 \date{}
 
 \begin{document}
@@ -75,26 +74,22 @@
 \newcommand{\normp}[1]{\norm{#1}_p}
 \newcommand\restr[2]{{\left.\kern-\nulldelimiterspace #1 \vphantom{\big|} \right|_{#2} }}
 \newcommand{\normpp}[2]{\norm{#1}_{#2}}
-\newcommand{\intl}[1]{\int\limits_{#1}}
-\newcommand{\veel}[1]{\bigvee\limits_{#1}}
-\newcommand{\veelr}[2]{\bigvee\limits_{#1}^{#2}}
 \newcommand{\defeq}{\mathrel{\stackrel{\makebox[0pt]{\mbox{\normalfont\tiny def}}}{=}}}
 \makeatletter
 \newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
 \makeatother
-\newcommand{\iintl}[1]{\iint\limits_{#1}}
 \newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
-\newcommand{\intlr}[2]{\int\limits_{#1}^{#2}}
-\newcommand{\suml}[1]{\sum\limits_{#1}}
-\newcommand{\sumlr}[2]{\sum\limits_{#1}^{#2}}
 \newcommand{\feps}{\forall\varepsilon}
-\newcommand{\Epsilon}{\varepsilon}
 \newcommand{\scalarp}[2]{\left\langle #1 , #2\right\rangle}
 \newcommand{\set}[1]{\left\{#1\right\}}
 \renewcommand{\phi}{\varphi}
+\renewcommand{\epsilon}{\varepsilon}
+
 \maketitle
 \tableofcontents
 \newpage
+
 \input{1-operators.tex}
 \input{2-spectrum.tex}
+
 \end{document}

@@ -2,7 +2,7 @@ all: build/main.pdf
 
 build/main.pdf: Makefile main.tex 1-operators.tex 2-spectrum.tex
 	mkdir -p build
-	rubber --into=build --warn all --pdf main.tex
+	rubber --into=build --pdf main.tex
 
 push: build/main.pdf sync 
 	git push --all
