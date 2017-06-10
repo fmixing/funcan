@@ -95,3 +95,58 @@
     (1 - \alpha_n) \cdot (r - \Epsilon)^{\frac{d_n}{n}} \cdot (r + \Epsilon) = 
     (1 + \gamma_n) \cdot (r + \Epsilon)$
 \end{proof}
+
+\begin{example}
+    Пространство $C[0, 1]$. Оператор $A(f, t) = t \cdot f(t)$. Очевидно, что 
+    $\norm{A(f)} \leqslant \norm{f}$. Пусть $\lambda I - A = A_\lambda$.
+    $A_\lambda(f, t) = (\lambda - t) \cdot  f(t) = g(t) \implies 
+    f(t) = \frac{g(t)}{\lambda - t}$. При каких $\lambda$, $A_\lambda$ непрерывно обратим?
+    Очевидно, при $\lambda \notin [0, 1]$. Это значит, что если $\lambda \in [0, 1]  \implies \lambda \in \rho(A)$.
+    Поэтому $\sigma(A) = [0, 1]$.
+\end{example}
+
+\begin{example}
+    Пространство $C[0, 1]$. $A(f, x) = \int_{0}^{x}f(t)dt$, $x \in [0, 1]$.
+    Вычислим его спектральный радиус.
+    
+    \begin{gather*}
+        A(f, x) = \int_{0}^{x}f(t)dt \\
+        A^2(f, x) = \int_{0}^{x} \left( \int_{0}^{x_1} f(t) dt\right)dx_1 \\
+        A^n(f, x) = \int_{0}^{x} dx_1 \int_{0}^{x_1} dx_2 \cdots \int_{0}^{x_{n + 1}} f(t)dt \leqslant 
+        \frac{\norm{f}}{n!} \\
+        \norm{f} \leqslant 1 \implies \norm{A^n} \leqslant \frac{1}{n!} \implies r_n \leqslant \frac{1}{\sqrt[n]{n!}} \rightarrow 0 
+        \implies r_{\sigma}(A) = 0
+        \end{gather*}
+\end{example}
+
+
+\begin{theorem}[Об отображении спектра полиномами]
+$\sigma(P(A)) = P(\sigma(A))$
+\end{theorem}
+
+\begin{lemma}
+    
+$P(A)$ - непрерывно обратим $\Leftrightarrow  0 \notin P(\sigma(A))$
+\end{lemma}
+\begin{proof}
+    \begin{enumerate}
+    \item Необходимость.
+
+    Сначала проверим следующий факт. Если два оператора коммутируют и их произведение непрерывно обратимо, то и каждый из них непрерывно обратим.
+    $T = A \cdot B = B \cdot A$, $\exists T^{-1}$ - непрерывно обратимый.
+    $I = T^{-1} T = T^{-1}\cdot \left( A  B\right) = \left( T^{-1} A \right) \cdot B = B^{-1} B$. Для $A$ аналогично.
+    В общем случае, $p(t)$ имеет вид $p(t) = a (t - \lambda_1)^{m_1} \cdot (t - \lambda_2)^{m_2} \cdots (t - \lambda_n)^{m_n}$, 
+    а $p(A) = a (A - \lambda_1 I)^{m_1} \cdot (A - \lambda_2 I)^{m_2} \cdots (A - \lambda_n I)^{m_{n}}$. Так как $p(A)$ - непрерывно обратим, то, по доказанному,  
+    каждый из множителей непрерывно обратим. Это значит, что каждое из $\lambda_j \in \rho(A)$. Поэтому, если $0 \in p(\sigma(A))$, 
+    то одно из $\lambda_j$ является корнем уравнения $p(t) = 0$. То есть, при каком-то $\lambda_j$, $p(\lambda_j) = 0$, это значит что 
+    $\lambda_j \in \sigma(A)$. Но $\lambda_j \in \rho(A)$. Противоречие.
+    \item Достаточность. Тут все аналогично необходимости, только в другую сторону.
+    
+
+    \end{enumerate}
+\end{proof}
+\begin{proof}[Доказательство теоремы]
+    Рассмотрим полином $p_1(t) = p(t) - \lambda$. Тогда, по лемме, $p_1(A)$ - непрерывно обратим тогда и только тогда когда $0 \notin p_1(\sigma(A))$, 
+    что эквивалентно $p(A) - \lambda I$ - непрерывно обратим, тогда и только тогда когда $\lambda \notin p(\sigma(A))$. Но $\exists(p(A) - \lambda I)^{-1} \Leftrightarrow 
+    \lambda \notin \sigma(p(A))$
+\end{proof}
