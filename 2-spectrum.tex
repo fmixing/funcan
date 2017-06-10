@@ -3,34 +3,34 @@
 \subsection{Определение спектра и резольвенты оператора}
 
 \begin{definition}[регулярная точка]
-    Число $\lambda \in \mathbb{C}$, называется \textit{регулярной точкой}
+    Число $\lambda \in \mathbb{C}$, называется \emph{регулярной точкой}
     для оператора $A$, если оператор $\lambda I - A$ "--- непрерывно обратим.
 \end{definition}
 
 \begin{definition}[резольвента]
-    Множество всех регулярных точек называется \textit{резольвентой} (обозначается $\rho(A)$)
+    Множество всех регулярных точек называется \emph{резольвентой} (обозначается $\rho(A)$)
     оператора $A$.
 \end{definition}
 
 \begin{definition}[резольвентный оператор]
-    Оператор $R_\lambda(A) = \left( \lambda I - A\right)^{-1}$ называется 
-    \textit{резольвентным оператором}.
+    Оператор $R_\lambda(A) = \left( \lambda I - A\right)^{-1}$ называется
+    \emph{резольвентным оператором}.
 \end{definition}
 
 \begin{definition}[спектр]
-    Множество $\sigma(A) = \mathbb{C} \setminus \rho(A)$ называется 
-    \textit{спектром} оператора $A$.
+    Множество $\sigma(A) = \mathbb{C} \setminus \rho(A)$ называется
+    \emph{спектром} оператора $A$.
 \end{definition}
 
 Рассмотрим $\lambda \in \sigma(A)$. Может быть два случая:
 \begin{enumerate}
     \item
-    $\Ker (\lambda I - A) \neq \left\{ \boldsymbol{0}\right\}$. Это значит, что оператор 
+    $\Ker (\lambda I - A) \neq \left\{ \bf{0}\right\}$. Это значит, что оператор
     $\lambda I - A$ имеет нетривиальное собственное подпространство, в котором (по определению)
-    выполняется $Ax=\lambda x$, $x \neq \boldsymbol{0}$, для некоторых $x$
+    выполняется $Ax=\lambda x$, $x \neq \bf{0}$, для некоторых $x$
     (то, что часто называется собственными числами и векторами).
     \item
-    $\Ker (\lambda I - A) = \left\{ \boldsymbol{0}\right\}$. 
+    $\Ker (\lambda I - A) = \left\{ \bf{0}\right\}$.
     Здесь необходимо рассмотреть два подслучая:
     \begin{enumerate}
         \item
@@ -39,7 +39,7 @@
         А спектр будет состоять из собственных значений.
         \item
         $\dim X = +\infty$. В этом случае может отсутствовать непрерывная обратимость.
-        Если при этом $\Cl R(\lambda I - A) = X$, то говорят, что $\lambda$ 
+        Если при этом $\Cl R(\lambda I - A) = X$, то говорят, что $\lambda$
         принадлежит непрерывной части спектра. Иначе говорят, что
         $\lambda$ принадлежит остаточной части спектра.
         (те $\lambda$ для которых ядро нетривиально называют дискретной частью спектра).
@@ -53,15 +53,15 @@
     Пусть $\lambda_0 \in \rho(A)$, тогда $\lambda_0 I - A$ - непрерывно обратим.
     Напишем тождество: $\lambda I - A = (\lambda - \lambda_0)I + \lambda_0I - A$.
     $I = (\lambda_0I - A) R_{\lambda_0}(A)$.
-    Отсюда, $\lambda I - A = (\lambda_0I - A) \cdot 
+    Отсюда, $\lambda I - A = (\lambda_0I - A) \cdot
     (R_{\lambda_0} (\lambda - \lambda_0) - I)$.
     Заметим, что если $\norm{R_{\lambda_0}} \cdot
     \abs{\lambda - \lambda_0} < 1$,
-    то по теореме Банаха о 
-    непрерывной обратимости оператора $I - C$, 
+    то по теореме Банаха о
+    непрерывной обратимости оператора $I - C$,
     оператор $R_{\lambda_0} (\lambda - \lambda_0) - I$ - непрерывно обратим.
-    Получается, что если $\lambda : \abs{\lambda - \lambda_0} < 
-    \frac{1}{\norm{R_{\lambda_0}}}$, то $\lambda \in \rho(A)$. 
+    Получается, что если $\lambda : \abs{\lambda - \lambda_0} <
+    \frac{1}{\norm{R_{\lambda_0}}}$, то $\lambda \in \rho(A)$.
 \end{proof}
 
 \begin{corollary}
@@ -80,20 +80,20 @@
     $\exists \lim \sqrt[n]{\norm{A^n}} = r_{\gamma}(A)$
 \end{statement}
 \begin{proof}
-    Очевидно, что всегда существует $\inf_{n}\sqrt[n]{\norm{A^n}} = r$. 
-    Итак, $\forall \Epsilon > 0 \exists n_0: \sqrt[n_0]{\norm{A^{n_0}}} < r + \Epsilon$.
-    Рассмотрим теперь $n > n_0$. $n = m_n \cdot n_0 + d_n$. Тогда 
+    Очевидно, что всегда существует $\inf_{n}\sqrt[n]{\norm{A^n}} = r$.
+    Итак, $\forall \epsilon > 0 \exists n_0: \sqrt[n_0]{\norm{A^{n_0}}} < r + \epsilon$.
+    Рассмотрим теперь $n > n_0$. $n = m_n \cdot n_0 + d_n$. Тогда
     \begin{gather*}
-        \norm{A^{n}}^{\frac{1}{n}} 
-        = \norm{A^{m_n \cdot n_0} \cdot A^{d_n}}^{\frac{1}{n}} \leqslant \norm{A^{n_0}}^{\frac{m_n}{n}} \cdot 
+        \norm{A^{n}}^{\frac{1}{n}}
+        = \norm{A^{m_n \cdot n_0} \cdot A^{d_n}}^{\frac{1}{n}} \leqslant \norm{A^{n_0}}^{\frac{m_n}{n}} \cdot
         \norm{A}^{\frac{d_n}{n}}\text{, где } \norm{A}^{\frac{d_n}{n}} \rightarrow 0. \\
-        \norm{A^{n_0}}^{\frac{m_n}{n}} < \left( \norm{A^{n_0}}^{\frac{1}{n_0}}\right)^{\frac{n_0 \cdot m_n}{n}} 
-        < \left( r + \Epsilon\right)^{\frac{m_n \cdot n_0}{n}}
+        \norm{A^{n_0}}^{\frac{m_n}{n}} < \left( \norm{A^{n_0}}^{\frac{1}{n_0}}\right)^{\frac{n_0 \cdot m_n}{n}}
+        < \left( r + \epsilon\right)^{\frac{m_n \cdot n_0}{n}}
     \end{gather*}
-    Следовательно, $r \leqslant \norm{A^n}^{\frac{1}{n}} \leqslant 
-    (1 + \alpha_n) \cdot \left( r + \Epsilon\right)^{1 - \frac{d_n}{n}} = 
-    (1 - \alpha_n) \cdot (r - \Epsilon)^{\frac{d_n}{n}} \cdot (r + \Epsilon) = 
-    (1 + \gamma_n) \cdot (r + \Epsilon)$
+    Следовательно, $r \leqslant \norm{A^n}^{\frac{1}{n}} \leqslant
+    (1 + \alpha_n) \cdot \left( r + \epsilon\right)^{1 - \frac{d_n}{n}} =
+    (1 - \alpha_n) \cdot (r - \epsilon)^{\frac{d_n}{n}} \cdot (r + \epsilon) =
+    (1 + \gamma_n) \cdot (r + \epsilon)$.
 \end{proof}
 
 \begin{example}

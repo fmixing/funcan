@@ -13,9 +13,9 @@
 \begin{proof}
     Достаточно проверить компактность в единичном шаре.
     Пусть $V_1$ - замкнутый шар единичного радиуса, проверим, что $B(A(V_1))$ - относительный компакт.
-    Так как $A(V_1)$ - относительный компакт, можем подобрать конечную $\Epsilon$-сеть. 
-    $\forall \Epsilon \exists y_1,  \dots, y_n \forall x \in V_1 \exists j \norm{A(x) - y_j} < \Epsilon$. Пусть $z_j = B(y_j)$. 
-    $\forall x \in V_1 \norm{B(A(x)) - z_j} = \norm{B(A(x) - y_j)} \leqslant \norm{A(x) - y_j} \cdot \norm{B} \leqslant \Epsilon\norm{B}$
+    Так как $A(V_1)$ - относительный компакт, можем подобрать конечную $\epsilon$-сеть. 
+    $\forall \epsilon \exists y_1,  \dots, y_n \forall x \in V_1 \exists j \norm{A(x) - y_j} < \epsilon$. Пусть $z_j = B(y_j)$. 
+    $\forall x \in V_1 \norm{B(A(x)) - z_j} = \norm{B(A(x) - y_j)} \leqslant \norm{A(x) - y_j} \cdot \norm{B} \leqslant \epsilon\norm{B}$
 \end{proof}
 
 \begin{statement}
@@ -34,6 +34,6 @@
 
 \begin{theorem}[О почти конечномерности компактного оператора]
     Пусть $A: X \rightarrow X$ - компактный оператор. $X$ - имеет базис Шаудера. Тогда 
-    $\forall \Epsilon > 0 \exists B, C: \dim R(B) < +\infty, \norm{C} \leqslant \Epsilon, A = B + C$
+    $\forall \epsilon > 0 \exists B, C: \dim R(B) < +\infty, \norm{C} \leqslant \epsilon, A = B + C$
 \end{theorem}
 

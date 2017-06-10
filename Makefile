@@ -1,10 +1,13 @@
-all: main.tex build compile
-compile: 1-operators.tex
-#rm -f build/main.aux
+all: build/main.pdf
+
+build/main.pdf: Makefile main.tex 1-operators.tex 2-spectrum.tex
+	mkdir -p build
 	rubber --into=build --pdf main.tex
-push: compile sync 
+
+push: build/main.pdf sync 
 	git push --all
-sync: main.tex
+
+sync: build/main.pdf
 	git stash
 	mv build/main.pdf ../
 	git checkout gh-pages
@@ -14,9 +17,6 @@ sync: main.tex
 	git commit -m 'sync'
 	git checkout master
 	git stash apply
-build:
-	mkdir -p build
+
 clean:
 	rm -rf build
-
-
