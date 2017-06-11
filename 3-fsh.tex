@@ -37,3 +37,45 @@
     $\forall \epsilon > 0 \exists B, C: \dim R(B) < +\infty, \norm{C} \leqslant \epsilon, A = B + C$
 \end{theorem}
 
+\begin{proof}
+    По условию, $x = \sum_{1}^{\infty}\alpha_j e_j$, пусть $S_n(x) = \sum_{1}^{n} \alpha_j e_j$, $R_n(x) = (I - S_n)x$. 
+    Проверим, что оператор $S_n$ непрерывен. Для начала, рассмотрим пространство $F = 
+    \left\{(\alpha_1, \dots, \alpha_n, \dots) \mid \sum_{1}^{\infty}\alpha_j e_j \text{- сходится в} X \right\}$.
+    Введем на этом множестве норму $\norm{\alpha} \defeq \sup_{n} \norm{S_n(x)}$. Очевидно, что это норма, также можно показать, что $F$ - банахово (Пространство $F$ - 
+    это по сути то же пространство $X$ только в координатном смысле).
+    \todo Рассмотрим оператор $T: F \rightarrow X$, $T(x) = \sum_{0}^{\infty} \alpha_j e_j$ - это линейный оператор.
+    Очевидно, $\norm{T(\alpha)} \leqslant \norm{\alpha}$. В силу единственности разложения в ряд и того, как действует $T$, у него существует обратный оператор,
+    который, по теореме Банаха о гомеоморфизме, будет ограниченным. $T^{-1}: X \rightarrow F$, $\norm{T^{-1}(x)} \leqslant m\cdot \norm{x}$.
+    С другой стороны, $T^{-1}(x) = \alpha$, $\norm{\alpha} \leqslant m \cdot \norm{x} \implies \forall n \norm{S_n(x)} \leqslant \norm{x}$.
+    Последовательность операторов $S_n$ - поточетчно сходится, и каждый из них непрерывен, тогда по теореме Банаха-Штейнгауза $\sup_n{\norm{S_n}} = M < \infty$.
+    Итак, мы доказали, что $I = S_n + R_n$, где $S_n$ - непрерывный. Очевидно, что $R_n$ - тоже непрерывен.
+    Напишем тождество: $A = S_n A + R_n A$. Из них $S_n A$ - конечномерный. Проверим, что $\norm{R_n} < \epsilon$.
+
+    Так как оператор $A$ - компактный, то у множества $A(V_1)$ есть конечная $\epsilon$-сеть. Итак, $\forall \epsilon$ $\exists y_1, \cdots, y_n $ 
+    - $\epsilon$-сеть для $A(V_1)$. $\forall x \in V_1 \norm{R_n(Ax)} \leqslant \norm{R_n(Ax - y_j)} +\norm{R_n(y_j)} \leqslant \norm{R_n} \cdot
+    \norm{Ax - y_j} \leqslant \epsilon$.
+    Первое слагаемое меньше $\epsilon$ за счет $\epsilon$-сети, второе, становится маленьким, за счет увеличения $n$.
+\end{proof}
+
+\begin{statement}
+    Если $A$  - компактный оператор, то $A^*$ - тоже компактный.
+\end{statement}
+
+\begin{proof}
+    \todo
+\end{proof}
+
+Для функционального анализа фундаментальную роль играют уравнения вида 
+\begin{gather}
+    y = (\lambda I - A)x
+\end{gather}
+и, в частности, $y = (I - A)x = Tx$. 
+
+
+\begin{statement}
+    Пусть $A$ - компактный оператор. Тогда $\dim \Ker T < \infty$i.
+\end{statement}
+
+\begin{proof}
+    
+\end{proof}
