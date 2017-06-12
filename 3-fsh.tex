@@ -73,9 +73,28 @@
 
 
 \begin{statement}
-    Пусть $A$ - компактный оператор. Тогда $\dim \Ker T < \infty$i.
+    Пусть $A$ - компактный оператор. Тогда $\dim \Ker T < \infty$.
 \end{statement}
 
 \begin{proof}
-    
+    Пусть $x \in \Ker T \implies x = Ax$. Таким образом, ядро - это множество неподвижных точек оператора $A$. И $\Ker T$ - подпространство $X$.
+    Рассмотрим $V_1 \subset \Ker T$ - единичная сфера в этом подпространстве. Тогда, очевидно, $A(V_1) = V_1$. По лемме Рисса о почти перпендикуляре, в бесконечномерном 
+    пространстве, единичная сфера - не компакт. А у нас - компакт, значит,  пространство не бесконечномерное.
+\end{proof}
+
+
+\begin{theorem}
+    Пусть оператор $A$ - компактный. Тогда $\Cl R(T) = R(T)$ ($R(T)$ - подпространство $X$).
+\end{theorem}
+
+\begin{proof}
+    Пусть $\Ker T =\mathcal{L}(\phi_1, \cdots, \phi_n)$. Для доказательства замкнутости, нужно показать существование априорной оценки. 
+    $y$ можно представить как $y = T\left( x +\sum_{1}^{n}\alpha_k \phi_k \right)$. Чтобы убедиться в существовании оценки, возьмем 
+    \begin{gather}
+    \widehat{x} = \min_{\alpha_j, j=\overline{1,n}}\norm{x + \sum_{1}^{n}\alpha_k \phi_k}
+    \end{gather}
+    Покажем, что $\widehat{x}$ всегда существует и $\exists \alpha: \norm{\widehat{x}}\leqslant\alpha\cdot\norm{y}$.
+    Пусть $f(\alpha_1, \cdots, \alpha_n) = f(\boldsymbol{\alpha}) = \norm{x + \sum_{1}^{n}\alpha_k \phi_k}$.
+    $\abs{f(\boldsymbol{\alpha} + \delta\boldsymbol{\alpha}) - f(\boldsymbol{\alpha})} \leqslant \sum_{1}^{n}\abs{\alpha_k} \cdot\norm{\delta\boldsymbol{\alpha}}
+    \leqslant \sqrt{\sum_{1}^{n}\norm{\phi_k}^2}\cdot\sqrt{\sum_{1}^{n}\delta\alpha_k^2}$.
 \end{proof}
