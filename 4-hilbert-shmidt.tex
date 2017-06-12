@@ -1,0 +1,135 @@
+\section{Теорема Гильберта-Шмидидта}
+\begin{definition}[Гильбертово пространство]
+    $H$ - гильбертово пространство над $\mathbb{C}$, если.
+    \begin{itemize}
+        \item $(x, y) = \overline{(y, x)}$
+        \item $(x,\alpha y) = \bar{\alpha}(x, y)$
+    \end{itemize}
+\end{definition}
+
+\begin{example}[$\mathbb{C}^n$ -- конечномерный случай]
+    $z = (z_1, z_2, \dotsc, z_n), z_i \in \mathbb{C} \\
+    (z, u) = \sum_{i = 1} ^n z_i \bar{u_i} \\
+    (x, x) \geqslant 0, (x, x) = 0 \Leftrightarrow x = 0 \\
+    (x, x) = \sum_{i = 1} ^n x_i \cdot \bar{x_i} = \sum_{i = 1} ^n |x_i|^2$
+\end{example}
+
+\begin{definition}[Самосопряженный оператор]
+    Линейный оператор $A: X \rightarrow X$ называется самосопряженным, 
+    если выполняется условие:
+    $(Ax, y) = (x, Ay)$.
+\end{definition}
+
+\begin{example}
+    $A : \mathbb{C}^n \rightarrow \mathbb{C}^n$, 
+    $A = \bar{A}^T$ -- эрмитовски симметричная
+\end{example}
+
+\begin{statement}
+    Если  $\int_a ^b K(k, t) f(t) dt$ - интегральный оператор, 
+    то $K(x, y) = \overline{K(y, x)}$
+\end{statement}
+\begin{proof}
+    \todo{\newline Домножить векторы на матрицу поворота}
+\end{proof}
+
+\begin{statement}
+    $A$ -- самосопряженный оператор, $\lambda = \mu + i \nu$.
+    Тогда $\forall x \in H \Rightarrow 
+    \norm{Ax - \lambda x} \geqslant |\nu| \cdot \norm{x}$
+\end{statement}
+\begin{proof}\
+    \begin{enumerate}
+    	\item Если матрица состоит из вещественных чисел:
+            $\norm{Ax - \lambda x}^2 = (Ax - \lambda x, Ax - \lambda x) = \\ 
+            = (\underbrace{Ax - \mu x} _{Lx, \mu \in \mathbb{R}} - i \nu x,
+            Ax - \mu x - i \nu x) = \underbrace{(Lx, Lx)}_{\norm{Lx}^2 = 0} - 
+            \underbrace{\underbrace{(Lx, i \nu x)} _{i \nu (Lx, x)} - 
+            \underbrace{(i \nu x, Lx)}_{{i \nu (Lx, x)}}}_
+            {\,= 0 \text{ \todo{ лажа}}} + 
+            |\nu|^2 \norm{x}^2 \geqslant |\nu|^2 \norm{x}^2$
+        \item Если $Im(a) \neq 0, \\ 
+            Ker(A - \lambda i) = \{0\} \Rightarrow$
+            Cобственные числа могут быть только вещественными.
+            $\Rightarrow |\nu| = |\nu|\norm{x} = 0$
+    \end{enumerate}
+\end{proof}
+
+\begin{statement}
+    Пусть $A$ - линейный оператор в $H$, тогда $Cl\, R(A) = (Ker A^*)^{\perp}$
+\end{statement}
+\begin{proof}
+    \begin{nb}
+        В общем случае уже доказывали, сейчас выведем независимо.
+        \todo{Написать, где доказательство.}
+    \end{nb}
+    \begin{enumerate}
+        \item Рассмотрим $y \in R(A): \\
+            \forall z \in Ker A^* \Leftrightarrow
+            A^*z = 0 \Rightarrow
+            (y, z) = (Ax, z) = (x, A^*z) = (x, 0) = 0 \\
+            \text{Taким образом, } \forall y \in R(A) \Rightarrow
+            y \perp A^* \\
+            y \in Cl\, R(A), y_n \in R(A), y_n \rightarrow y \Rightarrow
+            0 = (y_n, z) \rightarrow (y, z) \Rightarrow
+            (y, z) = 0 \\
+            $Итак, $ Cl\, R(A) \subset (Ker A^*)^{\perp}.$
+        \item Проверим обратное включение
+            $y \notin Cl\, R(A) \Rightarrow
+            y \notin (Ker A^*)^{\perp}. \\
+            Cl\, R(A) = H_1$ -- подпространство $H,
+            H = H_1 \oplus H_1 ^\perp. \\
+            $Рассмотрим $ y \notin H_1, 
+            \exists y_1 \in H_1, y_2 \in H_1 ^\perp, y_2 \neq 0 :\,
+            y = y_1 + y_2 \\
+            y_2 \in Ker A^* \Leftrightarrow
+            A^*y_2 = 0 \Leftrightarrow
+            (A^*y_2, A^*y_2) = 0 \Leftrightarrow
+            (\underbrace{A(A^*y_2)}_{\in H_1},
+            \underbrace{y_2}_{\in H_1 ^\perp}) = 0 \\
+            (y, y_2) = \norm{y_2}^2 \neq 0 \Rightarrow
+            y \notin (KerA^*)^\perp$
+    \end{enumerate}
+\end{proof}
+\begin{corollary}
+    $H = Cl\, R(A) \oplus Ker A^*$
+\end{corollary}
+
+\begin{theorem}
+    Пусть оператор $A$ самосопряженный,тогда $\sigma(A) \subset R$.
+\end{theorem}
+\begin{proof}
+    $\lambda : Im \lambda \neq 0,\,
+    R(A - \lambda x)$ -- замкнуто $\\
+    (A - \lambda I)^* = A - \bar{\lambda} I \\
+    \norm{(A -\bar{\lambda} I)x} \geqslant
+    \underbrace{|Im \lambda|}_{\neq 0} \cdot \norm{x} \\
+    Ker(A - \lambda I)^* = \{0\}, H = R(A - \lambda I) \\
+    По теореме Банаха о гомоморфизме: \exists (A - \lambda I)^{-1}
+    \Rightarrow \lambda \dot{\rho(A)}$
+\end{proof}
+
+\begin{theorem}
+    $A$ -- самосопряженный и ограниченный $H$.
+    \begin{enumerate}
+        \item
+            $\lambda \in \rho \Leftrightarrow 
+            \exists m > 0: \forall x \in H \Rightarrow
+            \norm{(A - \lambda I)x)} \geqslant m \norm{x}$
+        \item
+            $\lambda \in \sigma(A) \Leftrightarrow
+            \exists x_m: \norm{x_m} = 1 \Rightarrow
+            \norm{(A - \lambda I)x_m} \rightarrow 0$
+    \end{enumerate}	
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+    \item $\Rightarrow
+        \lambda \in \rho (A) \Leftrightarrow \exists (A - \lambda I)^{-1}
+        \norm{(A - \lambda I)^{-1}} \cdot M \\
+        \norm{(A - \lambda I)^{-1}y} \leqslant M \norm{y} \\
+        y = (A - \lambda I)x \\
+        \frac{m}{M} \norm{x} \leqslant \norm{(A -\lambda I)x}$
+    \end{enumerate}
+\end{proof}
+\pagebreak
