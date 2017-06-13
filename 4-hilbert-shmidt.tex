@@ -42,8 +42,8 @@
     \begin{enumerate}
     	\item Если матрица состоит из вещественных чисел:
             $\norm{Ax - \lambda x}^2 = \scalarp{Ax - \lambda x}{Ax - \lambda x} = \\ 
-            = (\underbrace{Ax - \mu x} _{Lx, \mu \in \mathbb{R}} - i \nu x,
-            Ax - \mu x - i \nu x) =
+            = \scalarp{\underbrace{Ax - \mu x} _{Lx, \mu \in \mathbb{R}} - i \nu x}
+            {Ax - \mu x - i \nu x} =
             \underbrace{\scalarp{Lx}{Lx}}_{\norm{Lx}^2 = 0} - 
             \underbrace{
                 \underbrace{\scalarp{Lx}{i \nu x}} _{- i \nu \scalarp{Lx}{x}} - 
@@ -89,8 +89,8 @@
             y_2 \in Ker A^* \Leftrightarrow
             A^*y_2 = 0 \Leftrightarrow
             \scalarp{A^*y_2}{A^*y_2} = 0 \Leftrightarrow
-            (\underbrace{A(A^*y_2)}_{\in H_1},
-            \underbrace{y_2}_{\in H_1 ^\perp}) = 0 \\
+            \scalarp{\underbrace{A(A^*y_2)}_{\in H_1}}
+            {\underbrace{y_2}_{\in H_1 ^\perp}} = 0 \\
             \scalarp{y}{y_2} = \norm{y_2}^2 \neq 0 \Rightarrow
             y \notin (KerA^*)^\perp$
     \end{enumerate}
