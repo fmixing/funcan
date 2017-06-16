@@ -95,6 +95,15 @@
     \end{gather}
     Покажем, что $\widehat{x}$ всегда существует и $\exists \alpha: \norm{\widehat{x}}\leqslant\alpha\cdot\norm{y}$.
     Пусть $f(\alpha_1, \cdots, \alpha_n) = f(\boldsymbol{\alpha}) = \norm{x + \sum_{1}^{n}\alpha_k \phi_k}$.
-    $\abs{f(\boldsymbol{\alpha} + \delta\boldsymbol{\alpha}) - f(\boldsymbol{\alpha})} \leqslant \sum_{1}^{n}\abs{\alpha_k} \cdot\norm{\delta\boldsymbol{\alpha}}
+    $\abs{f(\boldsymbol{\alpha} + \delta\boldsymbol{\alpha}) - f(\boldsymbol{\alpha})} \leqslant \sum_{1}^{n}\abs{\alpha_k} \cdot\norm{\phi_k}
     \leqslant \sqrt{\sum_{1}^{n}\norm{\phi_k}^2}\cdot\sqrt{\sum_{1}^{n}\delta\alpha_k^2}$.
+    Таким образом, $\abs{f(\boldsymbol{\alpha} + \delta\boldsymbol{\alpha}) - f(\boldsymbol{\alpha})} \leqslant C \cdot \norm{\delta\boldsymbol{\alpha}}$ - $f$ - непрерывна. 
+    Обозначим $d = \inf_{\alpha \in \mathbb{R}^n}\norm{\widehat{x} + \sum_{1}^{n}\alpha_k\phi_k}$. 
+    Нужно найти такие $\alpha$, что $\norm{x + \sum_{1}^{n}\alpha_k \phi_k} = f(\boldsymbol{\alpha}) \geqslant 2d$. 
+    Если $\alpha$ таковы что $\norm{\sum_{1}^{n}\alpha_k\phi_k}\geqslant 2d + \norm{\widehat{x}}$ и $\exists \gamma : \norm{\sum_{1}^{n}\alpha_k\phi_k}\leqslant
+    \gamma\norm{\alpha}$ ($\gamma$ существует потому что в конечномерных пространствах все нормы эквивалентны), то $\gamma\norm{\alpha} \geqslant 2d + \norm{\widehat{x}}$.
+    Обозначим $r = \frac{2d + \norm{\widehat{x}}}{\gamma} \leqslant \norm{\alpha}$. Тогда вне шара $V_r(0) \subset \mathbb{R}^n$, 
+    будет выполняться $f(\boldsymbol{\alpha}) \geqslant 2d$.
+
+    $d$ - инфимум значений $f$, 
 \end{proof}
