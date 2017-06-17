@@ -1,0 +1,127 @@
+\documentclass{article}
+
+\usepackage{enumitem,linegoal}
+\usepackage{xfrac}
+\usepackage{faktor}
+\usepackage{stmaryrd}
+\usepackage{calc}
+\usepackage{wrapfig}
+\usepackage{blindtext}
+\usepackage{tikz}
+\usepackage{yhmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{mathtext}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\usepackage[mathscr]{euscript}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{bm}
+\usepackage{listings}
+\usepackage{cancel}
+\usepackage{proof}
+\usepackage{epigraph}
+\usepackage{titlesec}
+\usepackage{mathtools}
+\usepackage[hidelinks]{hyperref}
+
+\selectlanguage{russian}
+
+\hypersetup{%
+    colorlinks=true,
+    linkcolor=blue
+}
+
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\Div}{div}
+\DeclareMathOperator{\rot}{rot}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\Int}{Int}
+
+\title{%
+    \sc{Функциональный анализ, 6 семестр} \\
+    \large Конспект лекций Додонова Н. Ю.}
+\author{\url{https://github.com/artemZholus/funcan}}
+\date{}
+
+\begin{document}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Определение}
+\theoremstyle{plain}
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{axiom}{Аксиома}
+\newtheorem{lemma}[theorem]{Лемма}
+\newtheorem{statement}[theorem]{Утверждение}
+\newtheorem{nb}[theorem]{N. B.}
+\newtheorem{corollary}[theorem]{Следствие}
+\theoremstyle{remark}
+\newtheorem*{example}{Пример}
+\newtheorem{property}[theorem]{Свойство}
+
+\newcommand{\todo}{\textsc{\textbf{TODO}}}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\eqcls}[1]{\left[#1 \right]}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+\newcommand{\normp}[1]{\norm{#1}_p}
+\newcommand\restr[2]{{\left.\kern-\nulldelimiterspace #1 \vphantom{\big|} \right|_{#2} }}
+\newcommand{\normpp}[2]{\norm{#1}_{#2}}
+\newcommand{\defeq}{\mathrel{\stackrel{\makebox[0pt]{\mbox{\normalfont\tiny def}}}{=}}}
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+\newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\feps}{\forall\varepsilon}
+\newcommand{\scalarp}[2]{\left\langle #1 , #2\right\rangle}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\epsilon}{\varepsilon}
+
+
+\begin{theorem}
+    $A$ "--- компактный оператор, тогда $\sigma(A)$ не
+    более чем счетно и может состоять только из 0.
+\end{theorem}
+\begin{proof}
+    Рассмотрим $\alpha > 0$. Покажем, что в отрезке $[\alpha,  \norm{A}]$ лежит конечное число точек спектра $\lambda$.
+    
+    По модулю все точки $\abs{\lambda}$ находятся в $[0, \norm{A}]$.
+    
+
+    \begin{tikzpicture}
+    \draw  (0,0) node[circle,fill,inner
+        sep=1pt,label=above:$0$](a){} 
+        -- (1,0) node[circle,fill,inner sep=1pt,label=above:$\alpha$](b){} 
+        -- (2.5,0) node[below] {конечное} 
+        -- (4,0) node[circle,fill,inner sep=1pt,label=above:$\norm{A}$](c){} ;
+    \end{tikzpicture}
+
+    Будем доказывать от противного. Пусть таких точек бесконечно много, тогда выделим подпоследовательность таких точек $\lambda_{n}$, что $\lambda_{n} \neq \lambda_{m}$ при $n \neq m$, $\alpha < \abs{\lambda_{n}}$, $\lambda_{n} \in A$, $n \in \mathbb{N}$ $\lambda_{n}$ --- собственное число.
+    
+    Возьмем $x_{1} \neq 0$, $Ax_{1} = \lambda_{1}x_{1}$, $x_{2} \neq 0$, $Ax_{2} = \lambda_{2}x_{2}$. 
+    Если допускать, что $x_{2} = \gamma x_{1}$, то $Ax_{2} = \gamma Ax_{1}$, следовательно $\lambda_{2}x_{2} = \gamma \lambda_{1}x_{1}$, и значит $x_{2} = \frac{\lambda_{1}}{\lambda_{2}} \gamma x_{1}$, но $x_{2} = \gamma x_{1}$, и если $\gamma \neq 0$, то $\gamma = \frac{\lambda_{1}}{\lambda_{2}} \gamma \implies \lambda_{1} = \lambda_{2}$.
+    
+    Таким образом, $\{x_{1}, x_{2}\}$ --- линейно независимая пара точек.
+    
+    Двигаемся так дальше по индукции, на n-м шаге $\{x_{1}, \dotso, x_{n}\}$ --- линейно независимые, $\lambda_{n}x_{n} = A x_{n}$. 
+    
+    $\exists x_{n+1} \neq 0: \lambda_{n+1}x_{n+1} = Ax_{n+1}$. Тогда $x_{n+1} = \sum_{1}^{n}\gamma_k x_k$ --- единственно. Применим оператор $A$ к этому равенству. $Ax_{n+1} = \sum_{1}^{n}\gamma_k Ax_k$, $\lambda_{n+1} x_{n+1} = \sum_{1}^{n}\gamma_k \lambda_k x_k$, $x_{n+1} = \sum_{1}^{n}\gamma_k \frac{\lambda_k}{\lambda_{n+1}} x_k$ --- единственно, так как $\{x_{i}\}$ --- линейно независимые, то хотя бы одна $\lambda_{k_{0}} \neq 0$. Приравниваем две суммы и получаем $\gamma_{k_{0}} \frac{\lambda_{k_{0}}}{\lambda_{n+1}} = \gamma_{k_{0}}$, и значит $\lambda_{k_{0}} = \lambda_{n+1}$.
+
+
+   
+
+   
+
+\end{proof}
+
+
+
+\end{document}
